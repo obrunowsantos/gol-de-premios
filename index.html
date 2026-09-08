@@ -1,0 +1,1058 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+    <!-- TikTok Pixel Code Start -->
+<script type="text/javascript" async="" src="js/events.js"></script><script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+
+  ttq.load('D4MBBS3C77UEBGID4130');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+  <meta charset="utf-8">
+  <title>Gol de Prêmios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&amp;family=Roboto:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gol-yellow: #FFD700;
+      --gol-blue-top: #007BFF;
+      --gol-blue-mid: #0060D1;
+      --gol-blue-bottom: #001B44;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0288F5 0, #0056d6 45%, #001744 100%);
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      color: #fff;
+    }
+
+    .font-russo {
+      font-family: 'Russo One', system-ui, sans-serif;
+    }
+
+    .font-roboto {
+      font-family: 'Roboto', system-ui, sans-serif;
+    }
+
+    /* Painel de vidro do saldo */
+    .glass-panel {
+      background: linear-gradient(90deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08));
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    /* Botão 3D amarelo CHUTAR */
+    .btn-3d-yellow {
+      background: linear-gradient(to bottom, #FFE082, #FFC107);
+      border-radius: 2.5rem;
+      box-shadow:
+        0 12px 0 #E0A000,
+        0 18px 30px rgba(0,0,0,0.45);
+    }
+
+    .btn-3d-yellow:hover {
+      transform: translateY(1px) scale(1.01);
+      box-shadow:
+        0 10px 0 #D18F00,
+        0 16px 26px rgba(0,0,0,0.45);
+    }
+
+    .btn-3d-yellow:active {
+      transform: translateY(4px) scale(0.98);
+      box-shadow:
+        0 6px 0 #C47F00,
+        0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    /* Casas do grid */
+    .target-box {
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.35), transparent 55%),
+                  linear-gradient(145deg, #0D47A1, #42A5F5);
+      box-shadow:
+        0 8px 0 rgba(0,0,0,0.35),
+        0 14px 24px rgba(0,0,0,0.45);
+      border: 2px solid rgba(255,255,255,0.6);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .target-box:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow:
+        0 10px 0 rgba(0,0,0,0.35),
+        0 18px 30px rgba(0,0,0,0.5);
+    }
+
+    /* Efeito multiplicador nas casas */
+    .target-box.multiplicador-ativo {
+      border-color: rgba(34,197,94,0.9) !important;
+      box-shadow:
+        0 0 0 3px rgba(34,197,94,0.9),
+        0 10px 0 rgba(0,0,0,0.35),
+        0 18px 30px rgba(0,0,0,0.6);
+    }
+
+    /* Shimmer do botão CHUTAR */
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .shimmer-bar {
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.6) 45%,
+        rgba(255,255,255,0.9) 50%,
+        rgba(255,255,255,0.6) 55%,
+        transparent 100%
+      );
+    }
+
+    .btn-3d-yellow:hover .shimmer-bar {
+      animation: shimmer 1s infinite;
+    }
+
+    /* Popup de entrada */
+    @keyframes popupFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    #gol-popup-overlay {
+      animation: popupFadeIn 0.5s ease-out;
+    }
+
+    /* Badge 5x flutuando */
+    @keyframes bounceSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-bounce-slow {
+      animation: bounceSlow 1.6s infinite;
+    }
+  </style>
+</head>
+<body>
+<script>
+  (function(){
+    // trava o histórico atual
+    history.pushState(null, document.title, location.href);
+
+    window.addEventListener('popstate', function () {
+      // quando o usuário apertar VOLTAR, manda para a página de back
+      window.location.href = 'back.html'; // ajuste o nome/caminho se precisar
+    });
+  })();
+</script>
+
+  <!-- CONTAINER DO JOGO -->
+  <div class="relative w-full max-w-md mx-auto flex flex-col pt-4 pb-0">
+    <!-- HEADER -->
+    <header class="p-4 flex justify-between items-center z-20 relative">
+      <!-- botão voltar -->
+      <button class="inline-flex items-center justify-center size-9 bg-white/20 hover:bg-white/30 text-white rounded-full backdrop-blur-sm transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m15 18-6-6 6-6"></path>
+        </svg>
+      </button>
+
+      <!-- logo Gol de Prêmios -->
+      <div class="flex flex-col items-center">
+        <h1 class="text-3xl text-[#FFD700] drop-shadow-[0_2px_0_rgba(0,0,0,0.3)] italic transform -skew-x-12 font-black tracking-tighter leading-none">
+          GOL
+        </h1>
+        <span class="text-[10px] text-[#FFD700] font-bold tracking-[0.2em] uppercase drop-shadow-sm">
+          de Prêmios
+        </span>
+      </div>
+
+      <!-- botão som (toggle) -->
+      <button id="btn-sound-toggle" class="inline-flex items-center justify-center size-9 bg-white/20 hover:bg-white/30 text-white rounded-full backdrop-blur-sm transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path>
+          <path d="M16 9a5 5 0 0 1 0 6"></path>
+          <path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- SALDO + TIMER -->
+    <div class="px-4 z-20 relative mt-2">
+      <div class="glass-panel rounded-3xl p-4 flex justify-between items-center border border-white/30 shadow-xl">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-gray-300 border-2 border-white overflow-hidden shadow-md">
+            <img alt="User" class="w-full h-full bg-white" src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix">
+          </div>
+          <div>
+            <p class="text-xs text-blue-100 font-medium">Saldo</p>
+            <!-- saldo com ID pra atualizar -->
+            <p id="saldo-valor" class="text-3xl font-bold text-white drop-shadow-sm">R$ 0,00</p>
+          </div>
+        </div>
+
+        <div class="text-right flex flex-col items-end gap-1">
+          <p class="text-[10px] text-blue-100 font-medium">Mínimo R$ 1000</p>
+          <button id="btn-resgatar-saldo" class="inline-flex items-center justify-center bg-white hover:bg-blue-50 text-blue-600 font-bold rounded-full h-9 px-6 shadow-md transition-transform active:scale-95 text-sm">
+            Resgatar
+          </button>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center mt-3 px-2 text-xs text-blue-100 font-medium">
+        <span class="flex items-center gap-1">
+          Expira em
+          <span id="top-horas" class="bg-black/20 px-1.5 py-0.5 rounded text-white font-mono">19</span> :
+          <span id="top-minutos" class="bg-black/20 px-1.5 py-0.5 rounded text-white font-mono">48</span> :
+          <span id="top-segundos" class="bg-black/20 px-1.5 py-0.5 rounded text-white font-mono">49</span>
+        </span>
+        <span class="flex items-center gap-1 cursor-pointer hover:text-white transition-colors">
+          Mais
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- ÁREA PRINCIPAL DO JOGO -->
+    <main class="flex-1 flex flex-col items-center justify-end relative w-full max-w-md mx-auto mt-4 z-10">
+      <!-- GRID AZUL -->
+      <div class="relative w-full px-5 mb-2 z-10 perspective-1000">
+        <div class="relative bg-[#E0F7FA]/10 rounded-t-[2.5rem] border-[6px] border-white/90 p-4 pb-12 backdrop-blur-[2px] shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+          <div class="absolute inset-0 rounded-t-[2rem] opacity-30 pointer-events-none" style="background-image: linear-gradient(45deg, rgb(255, 255, 255) 25%, transparent 25%), linear-gradient(-45deg, rgb(255, 255, 255) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgb(255, 255, 255) 75%), linear-gradient(-45deg, transparent 75%, rgb(255, 255, 255) 75%); background-size: 20px 20px; background-position: 0px 0px, 0px 10px, 10px -10px, -10px 0px;">
+          </div>
+
+          <div class="grid grid-cols-4 gap-3 relative z-10">
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center text-white font-russo text-xl hover:scale-105 cursor-pointer">19</div>
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center text-white font-russo text-xl hover:scale-105 cursor-pointer">4</div>
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center text-white font-russo text-xl hover:scale-105 cursor-pointer">5</div>
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center font-russo text-2xl text-[#FFD700] shadow-[0_0_10px_rgba(255,215,0,0.5)] hover:scale-105 cursor-pointer">500</div>
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center text-white font-russo text-xl hover:scale-105 cursor-pointer">2</div>
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center text-white font-russo text-xl hover:scale-105 cursor-pointer">3</div>
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center text-white font-russo text-xl hover:scale-105 cursor-pointer">35</div>
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center text-white font-russo text-xl hover:scale-105 cursor-pointer">1</div>
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center text-white font-russo text-xl hover:scale-105 cursor-pointer">8</div>
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center text-white font-russo text-xl hover:scale-105 cursor-pointer">26</div>
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center text-white font-russo text-xl hover:scale-105 cursor-pointer">2</div>
+            <div class="target-box aspect-square rounded-xl flex items-center justify-center text-white font-russo text-xl hover:scale-105 cursor-pointer">8</div>
+          </div>
+        </div>
+
+        <!-- colunas brancas laterais -->
+        <div class="absolute bottom-0 left-6 w-2 h-full bg-white/50 rounded-full blur-[1px]"></div>
+        <div class="absolute bottom-0 right-6 w-2 h-full bg-white/50 rounded-full blur-[1px]"></div>
+      </div>
+
+      <!-- GRAMA + MOEDAS -->
+      <div class="absolute bottom-0 w-full h-[42%] bg-[#2E7D32] rounded-t-[3rem] shadow-[inset_0_10px_30px_rgba(0,0,0,0.4)] z-0 overflow-hidden border-t-4 border-[#4CAF50]">
+        <div class="absolute inset-0 opacity-40 bg-[url('/images/grass-texture.png')] bg-repeat bg-[length:150px_150px]"></div>
+        <div class="absolute bottom-24 left-0 right-0 h-40 bg-[url('/images/coin-pile.png')] bg-contain bg-center bg-no-repeat opacity-90 transform scale-125 translate-y-4"></div>
+      </div>
+
+      <!-- BOLA + BOTÕES (mais pra baixo com mt-8) -->
+      <div class="relative z-20 w-full px-6 pb-6 mt-8 flex flex-col items-center">
+        <!-- bola principal -->
+        <div id="main-ball" class="relative mb-4 group">
+          <div class="w-24 h-24 rounded-full z-30 relative cursor-pointer transition-transform hover:scale-105 active:scale-95">
+            <img class="w-full h-full object-cover rounded-full shadow-[0_10px_20px_rgba(0,0,0,0.4)]" alt="Bola do Jogo" src="images/bola.jpg">
+            <div class="absolute inset-0 rounded-full shadow-[inset_-10px_-10px_20px_rgba(0,0,0,0.4),inset_5px_5px_15px_rgba(255,255,255,0.4)] pointer-events-none"></div>
+          </div>
+          <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-3 bg-black/50 blur-md rounded-[100%] group-hover:w-14 group-hover:blur-sm transition-all"></div>
+        </div>
+
+        <!-- botão CHUTAR -->
+        <button id="btn-chutar" class="btn-3d-yellow w-56 h-20 text-3xl text-[#5a3a00] font-black tracking-widest mb-4 flex flex-col items-center justify-center leading-none active:scale-95 transition-all relative overflow-hidden group">
+          <span class="relative z-10 drop-shadow-sm">CHUTAR</span>
+          <span id="chances-text" class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#5a3a00]/70 mt-1 relative z-10">Chances: 3</span>
+          <div class="absolute inset-0 shimmer-bar -translate-x-full opacity-0 group-hover:opacity-100"></div>
+        </button>
+
+        <!-- mãozinha apontando -->
+        <div class="absolute bottom-24 right-10 animate-bounce pointer-events-none z-40 drop-shadow-lg">
+          <span class="text-5xl filter drop-shadow-lg">👆</span>
+        </div>
+
+        <!-- botões inferiores -->
+        <div class="w-full flex justify-between items-center mt-2 px-4">
+          <!-- Mais chances -->
+          <div class="flex flex-col items-center gap-2 group cursor-pointer">
+            <div class="rounded-full bg-[#448AFF] hover:bg-[#2979FF] h-12 w-12 flex items-center justify-center shadow-[0_4px_0_#1565C0] active:shadow-none active:translate-y-1 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5v14"></path>
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold text-white bg-[#1565C0] px-3 py-1 rounded-full shadow-sm">Mais chances</span>
+          </div>
+
+          <!-- QR Code -->
+          <div class="flex flex-col items-center gap-2 group cursor-pointer">
+            <div class="rounded-full bg-[#448AFF] hover:bg-[#2979FF] h-12 w-12 flex items-center justify-center shadow-[0_4px_0_#1565C0] active:shadow-none active:translate-y-1 transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+                <path d="M7 12h10"></path>
+              </svg>
+            </div>
+            <span class="text-[10px] font-bold text-white bg-[#1565C0] px-3 py-1 rounded-full shadow-sm">QR Code</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- BOLA ANIMADA DO CHUTE -->
+  <div id="shot-ball" class="fixed w-10 h-10 rounded-full overflow-hidden pointer-events-none hidden z-[60]">
+    <img src="images/bola.jpg" class="w-full h-full object-cover" alt="Bola animada">
+  </div>
+
+  <!-- BADGE 5x FLUTUANDO (aparece depois do multiplicador) -->
+  <div id="badge-15x" class="fixed top-20 right-4 z-40 hidden">
+    <div class="bg-[#22c55e] text-white font-black text-xl rounded-full px-4 py-2 shadow-[0_10px_25px_rgba(0,0,0,0.4)] animate-bounce-slow">
+      5x
+    </div>
+  </div>
+
+  <!-- POPUP INICIAL -->
+  <div id="gol-popup-overlay" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+    <div style="background:#ffffff; border-radius:20px; padding:40px; max-width:500px; width:90%; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,0.3); border:3px solid #FE2B54;">
+      <h2 style="color:#FE2B54; font-size:32px; font-weight:bold; margin-bottom:20px; text-transform:uppercase; font-family:'Russo One',sans-serif; text-shadow:1px 1px 2px rgba(254,43,84,0.2); line-height:1.2;">
+        VOCÊ GANHOU 3 CHANCES DE FAZER O GOL PREMIADO
+      </h2>
+      <p style="color:#333; font-size:18px; margin-bottom:30px; font-weight:500; font-family:'Roboto',sans-serif;">
+        Clique no botão abaixo para começar a jogar!
+      </p>
+      <button id="btn-iniciar-gol" style="background-color:#FE2B54; color:#ffffff; border:none; padding:15px 40px; font-size:18px; font-weight:bold; border-radius:30px; cursor:pointer; transition:transform 0.2s, box-shadow 0.2s, background-color 0.2s; text-transform:uppercase; font-family:'Russo One',sans-serif; box-shadow:0 4px 15px rgba(254,43,84,0.4);">
+        INICIAR
+      </button>
+    </div>
+  </div>
+
+  <!-- POPUP "QUASE!" -->
+  <div id="modal-quase" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center hidden">
+    <div class="max-w-xs w-[90%] bg-white rounded-[1.5rem] shadow-2xl p-6 flex flex-col items-center text-center relative">
+      <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+        <span class="text-3xl">😅</span>
+      </div>
+      <h2 class="text-xl font-black text-gray-800 mb-2 font-russo uppercase">QUASE! ⚽</h2>
+
+      <p class="text-gray-600 text-sm mb-1 leading-relaxed">
+        Você acabou de ganhar:
+      </p>
+      <div id="quase-valor" class="text-3xl font-black text-[#fe2b54] mb-3 font-roboto tracking-tight">
+        R$ 0,00
+      </div>
+      <p id="quase-msg" class="text-gray-600 text-sm mb-6 leading-relaxed">
+        Restam mais duas chances para acertar o gol de R$ 500!
+      </p>
+
+      <button id="btn-quase-continuar" class="inline-flex items-center justify-center w-full bg-[#fe2b54] hover:bg-[#e02448] text-white font-bold text-lg h-12 rounded-full shadow-lg active:scale-95 transition-all">
+        Continuar
+      </button>
+      <button id="btn-quase-close" type="button" class="absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+        <span class="sr-only">Close</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- POPUP "GOL DE PRÊMIOS - 1000" -->
+  <div id="modal-gol" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center hidden">
+    <div class="relative max-w-xs w-[90%]">
+      <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 z-50">
+        <img class="w-full h-full object-contain drop-shadow-xl" alt="Winner Ball" src="images/gol.png">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-yellow-400/30 blur-xl rounded-full -z-10 animate-pulse"></div>
+      </div>
+      <div class="bg-white rounded-[1.5rem] p-6 pt-14 flex flex-col items-center text-center relative">
+        <h2 class="text-xl font-black text-black mb-3 font-roboto tracking-tight">Gol de Prêmios</h2>
+        <p class="text-gray-600 text-sm mb-4 leading-tight px-2">
+          Parabéns! Como parte de uma campanha de recompensas exclusiva.
+        </p>
+        <div id="gol-valor" class="text-4xl font-black text-black mb-4 tracking-tighter">R$ 0,00</div>
+        <div class="flex items-center gap-2 text-xs text-gray-500 mb-6 bg-gray-50 px-3 py-1 rounded-lg">
+          <span>Expira em</span>
+          <div class="flex gap-1 font-mono font-bold text-gray-800">
+            <span id="prize-horas" class="bg-gray-200 px-1.5 rounded">00</span>:
+            <span id="prize-minutos" class="bg-gray-200 px-1.5 rounded">16</span>:
+            <span id="prize-segundos" class="bg-gray-200 px-1.5 rounded">37</span>
+          </div>
+        </div>
+        <button id="btn-resgatar" class="inline-flex items-center justify-center w-full bg-[#FF2D55] hover:bg-[#E02448] text-white font-bold text-lg h-12 rounded-full shadow-lg active:scale-95 transition-all mb-2">
+          RESGATAR
+        </button>
+        <button id="btn-gol-close" type="button" class="absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+          <span class="sr-only">Close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP SUPER CHUTE MULTIPLICADOR -->
+  <div id="modal-super" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center hidden">
+    <div class="relative max-w-xs w-[90%]">
+      <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 z-50">
+        <img class="w-full h-full object-contain drop-shadow-xl" alt="Super Chute" src="images/super.png">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-emerald-400/30 blur-xl rounded-full -z-10 animate-pulse"></div>
+      </div>
+      <div class="bg-white rounded-[1.5rem] p-6 pt-14 flex flex-col items-center text-center relative">
+        <h2 class="text-xl font-black text-emerald-600 mb-3 font-roboto tracking-tight uppercase">
+          Super chute multiplicador
+        </h2>
+        <p class="text-gray-700 text-sm mb-3 leading-relaxed px-2">
+          Você ganhou um <strong>bônus especial</strong>.<br>
+          Aperte em <strong>continuar</strong> para desbloquear um multiplicador de até <strong>15x</strong> no seu saldo.
+        </p>
+        <p class="text-[11px] font-semibold text-emerald-600 mb-4">
+          Você não perderá o valor que for ganhado.
+        </p>
+        <button id="btn-super-continuar" class="inline-flex items-center justify-center w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-lg h-12 rounded-full shadow-lg active:scale-95 transition-all mb-2">
+          Continuar
+        </button>
+        <button id="btn-super-close" type="button" class="absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+          <span class="sr-only">Close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP GANHOU MULTIPLICADOR 5x (COM BOTÃO JOGAR) -->
+  <div id="modal-ganhou5x" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center hidden">
+    <div class="relative max-w-xs w-[90%]">
+      <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-28 h-28 z-50">
+        <img class="w-full h-full object-contain drop-shadow-xl" alt="Multiplicador 5x" src="images/5x.png">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#22c55e]/30 blur-xl rounded-full -z-10 animate-pulse"></div>
+      </div>
+      <div class="bg-gradient-to-b from-emerald-500 via-emerald-600 to-emerald-700 rounded-[1.5rem] p-6 pt-14 flex flex-col items-center text-center relative text-white shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
+        <h2 class="text-xl font-black mb-2 font-roboto tracking-tight uppercase">
+          Multiplicador de 5x desbloqueado
+        </h2>
+        <p class="text-sm mb-4 leading-relaxed px-2">
+          Você acaba de ganhar um <strong>multiplicador de 5 vezes</strong> para o seu próximo chute.
+        </p>
+
+        <div class="w-full bg-emerald-900/40 rounded-xl p-3 mb-4 text-left text-sm space-y-1">
+          <div class="flex justify-between">
+            <span class="opacity-80">Saldo atual:</span>
+            <span id="ganhou-original" class="font-bold">R$ 0,00</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="opacity-80">Multiplicador desbloqueado:</span>
+            <span class="font-black text-yellow-300 text-lg">5x</span>
+          </div>
+        </div>
+
+        <p class="text-[11px] opacity-90 mb-3">
+          Seu próximo chute já vai usar o <strong>5x</strong>. Clique em <strong>Jogar</strong> e depois em <strong>CHUTAR</strong> para aplicar o bônus.
+        </p>
+
+        <button id="btn-ganhou-jogar" class="inline-flex items-center justify-center w-full bg-yellow-300 hover:bg-yellow-200 text-emerald-900 font-black text-lg h-12 rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.6)] active:scale-95 transition-all mb-1">
+          Jogar com 5x
+        </button>
+        <p class="text-[10px] opacity-80">
+          Você não perde o saldo já conquistado.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP MULTIPLICADOR 5x (FINAL, MOSTRA SALDO MULTIPLICADO) -->
+  <div id="modal-multi" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center hidden">
+    <div class="relative max-w-xs w-[90%]">
+      <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-28 h-28 z-50">
+        <img class="w-full h-full object-contain drop-shadow-xl" alt="Saldo multiplicado" src="images/5x.png">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#22c55e]/30 blur-xl rounded-full -z-10 animate-pulse"></div>
+      </div>
+      <div class="bg-gradient-to-b from-emerald-500 via-emerald-600 to-emerald-700 rounded-[1.5rem] p-6 pt-14 flex flex-col items-center text-center relative text-white shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
+        <h2 class="text-xl font-black mb-2 font-roboto tracking-tight uppercase">
+          Saldo multiplicado por 5x
+        </h2>
+        <p class="text-sm mb-4 leading-relaxed px-2">
+          Aplicamos o <strong>multiplicador de 5x</strong> sobre o seu saldo do jogo.
+          Confira abaixo quanto você ficou no total:
+        </p>
+
+        <div class="w-full bg-emerald-800/50 rounded-xl p-3 mb-4 text-left text-sm space-y-1">
+          <div class="flex justify-between">
+            <span class="opacity-80">Saldo antes do bônus:</span>
+            <span id="multi-original" class="font-bold">R$ 0,00</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="opacity-80">Multiplicador aplicado:</span>
+            <span class="font-black text-yellow-300 text-lg">5x</span>
+          </div>
+          <div class="border-t border-emerald-500/60 mt-2 pt-2 flex justify-between items-center">
+            <span class="opacity-90 font-semibold">Novo saldo final:</span>
+            <span id="multi-final" class="font-black text-2xl">R$ 0,00</span>
+          </div>
+        </div>
+
+        <button id="btn-multi-resgatar" class="inline-flex items-center justify-center w-full bg-yellow-300 hover:bg-yellow-200 text-emerald-900 font-black text-lg h-12 rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.6)] active:scale-95 transition-all mb-2">
+          Resgatar valor
+        </button>
+        <p class="text-[11px] opacity-80">
+          Ao clicar em <strong>Resgatar valor</strong>, você será direcionado para concluir o recebimento.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIB DE CONFETTI -->
+  <script src="js/confetti.browser.min.js"></script>
+
+  <script>
+    // ÁUDIOS
+    const crowdAudio = new Audio('torcida.mp3'); // fundo
+    crowdAudio.loop = true;
+    crowdAudio.volume = 0.5;
+
+    const clickAudio = new Audio('botao.mp3');   // clique
+    clickAudio.volume = 1;
+
+    const finalAudio = new Audio('final.mp3');   // som final
+    finalAudio.volume = 1;
+
+    const errorAudio = new Audio('erro.mp3');    // se quiser usar em QUASE
+    errorAudio.volume = 1;
+
+    const certoAudio = new Audio('certo.mp3');   // som de acerto
+    certoAudio.volume = 1;
+
+    let isMuted = false;
+
+    function updateMuteState() {
+      [crowdAudio, clickAudio, finalAudio, errorAudio, certoAudio].forEach(a => {
+        if (a) a.muted = isMuted;
+      });
+    }
+    updateMuteState();
+
+    function playClick() {
+      try { clickAudio.currentTime = 0; clickAudio.play(); } catch (e) {}
+    }
+    function playFinal() {
+      try { finalAudio.currentTime = 0; finalAudio.play(); } catch (e) {}
+    }
+    function playError() {
+      try { errorAudio.currentTime = 0; errorAudio.play(); } catch (e) {}
+    }
+    function playCerto() {
+      try { certoAudio.currentTime = 0; certoAudio.play(); } catch (e) {}
+    }
+    function startCrowd() {
+      try { crowdAudio.play(); } catch (e) {}
+    }
+
+    // Toggle som
+    const btnSoundToggle = document.getElementById('btn-sound-toggle');
+    btnSoundToggle.addEventListener('click', () => {
+      playClick();
+      isMuted = !isMuted;
+      updateMuteState();
+      btnSoundToggle.classList.toggle('opacity-40', isMuted);
+    });
+
+    // Popup inicial
+    const iniciarBtn = document.getElementById('btn-iniciar-gol');
+    iniciarBtn.addEventListener('click', function () {
+      playClick();
+      document.getElementById('gol-popup-overlay').classList.add('hidden');
+      startCrowd();
+    });
+
+    const btnChutar = document.getElementById('btn-chutar');
+    const chancesText = document.getElementById('chances-text');
+    const boxes = Array.from(document.querySelectorAll('.target-box'));
+
+    const modalQuase    = document.getElementById('modal-quase');
+    const modalGol      = document.getElementById('modal-gol');
+    const modalSuper    = document.getElementById('modal-super');
+    const modalGanhou5x = document.getElementById('modal-ganhou5x');
+    const modalMulti    = document.getElementById('modal-multi');
+
+    const btnQuaseContinuar = document.getElementById('btn-quase-continuar');
+    const btnQuaseClose     = document.getElementById('btn-quase-close');
+    const btnGolClose       = document.getElementById('btn-gol-close');
+    const btnResgatar       = document.getElementById('btn-resgatar');
+    const btnResgatarSaldo  = document.getElementById('btn-resgatar-saldo');
+
+    const btnSuperContinuar = document.getElementById('btn-super-continuar');
+    const btnSuperClose     = document.getElementById('btn-super-close');
+
+    const btnGanhouJogar    = document.getElementById('btn-ganhou-jogar');
+    const btnMultiResgatar  = document.getElementById('btn-multi-resgatar');
+
+    const badge15x          = document.getElementById('badge-15x');
+
+    const mainBall = document.getElementById('main-ball');
+    const shotBall = document.getElementById('shot-ball');
+
+    // elementos de texto dos popups
+    const quaseValorEl     = document.getElementById('quase-valor');
+    const quaseMsgEl       = document.getElementById('quase-msg');
+    const golValorEl       = document.getElementById('gol-valor');
+    const ganhouOriginalEl = document.getElementById('ganhou-original');
+    const multiOriginalEl  = document.getElementById('multi-original');
+    const multiFinalEl     = document.getElementById('multi-final');
+
+    // Saldo
+    let saldo = 0;
+    const saldoEl = document.getElementById('saldo-valor');
+
+    function atualizarSaldo() {
+      if (!saldoEl) return;
+      const formatado = saldo.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+      saldoEl.innerHTML = 'R$ ' + formatado;
+    }
+    atualizarSaldo();
+
+    // animação genérica de moeda
+    function animateCurrencyElement(element, from, to, duration, useNbsp) {
+      const start = performance.now();
+      const formatter = new Intl.NumberFormat('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+
+      function frame(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const current = from + (to - from) * progress;
+        const txt = formatter.format(current);
+        element.innerHTML = 'R$' + (useNbsp ? ' ' : ' ') + txt;
+        if (progress < 1) {
+          requestAnimationFrame(frame);
+        }
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function animarSaldoPara(novo) {
+      if (!saldoEl) return;
+      const de = saldo;
+      saldo = novo;
+      animateCurrencyElement(saldoEl, de, novo, 800, true);
+    }
+
+    function animarValorPopup(element, valor) {
+      if (!element) return;
+      animateCurrencyElement(element, 0, valor, 800, false);
+    }
+
+    // Timers
+    const topH = document.getElementById('top-horas');
+    const topM = document.getElementById('top-minutos');
+    const topS = document.getElementById('top-segundos');
+
+    const prizeH = document.getElementById('prize-horas');
+    const prizeM = document.getElementById('prize-minutos');
+    const prizeS = document.getElementById('prize-segundos');
+
+    function startCountdown(hoursSpan, minutesSpan, secondsSpan) {
+      if (!hoursSpan || !minutesSpan || !secondsSpan) return () => {};
+
+      let h = parseInt(hoursSpan.textContent) || 0;
+      let m = parseInt(minutesSpan.textContent) || 0;
+      let s = parseInt(secondsSpan.textContent) || 0;
+
+      let totalSeconds = h * 3600 + m * 60 + s;
+
+      function update() {
+        if (totalSeconds < 0) return;
+        const ch = Math.floor(totalSeconds / 3600);
+        const cm = Math.floor((totalSeconds % 3600) / 60);
+        const cs = totalSeconds % 60;
+        hoursSpan.textContent = String(ch).padStart(2, '0');
+        minutesSpan.textContent = String(cm).padStart(2, '0');
+        secondsSpan.textContent = String(cs).padStart(2, '0');
+      }
+
+      update();
+
+      const intervalId = setInterval(() => {
+        totalSeconds--;
+        if (totalSeconds < 0) {
+          clearInterval(intervalId);
+          return;
+        }
+        update();
+      }, 1000);
+
+      return () => clearInterval(intervalId);
+    }
+
+    // Timer do topo
+    startCountdown(topH, topM, topS);
+
+    // Timer do prêmio
+    let stopPrizeTimer = null;
+    function startPrizeTimer() {
+      if (stopPrizeTimer) stopPrizeTimer();
+      prizeH.textContent = '00';
+      prizeM.textContent = '16';
+      prizeS.textContent = '37';
+      stopPrizeTimer = startCountdown(prizeH, prizeM, prizeS);
+    }
+
+    // Helpers do jogo
+    let chances = 3;
+    let isProcessing = false;
+
+    const multiplicador = 5;
+    let saldoAntesMultiplicador = 0;
+    let saldoFinalMultiplicado  = 0;
+    let modoMultiplicadorAtivo  = false;
+
+    function atualizarChances() {
+      chancesText.textContent = 'Chances: ' + chances;
+    }
+
+    function resetHighlights() {
+      boxes.forEach(box => {
+        box.classList.remove('ring-4', 'ring-yellow-300', 'scale-110');
+      });
+    }
+
+    function highlightElement(el) {
+      if (!el) return;
+      el.classList.add('ring-4', 'ring-yellow-300', 'scale-110');
+    }
+
+    // Animação da bola indo até o quadradinho
+    function animateShotToBox(boxEl, done) {
+      if (!mainBall || !shotBall || !boxEl) {
+        done();
+        return;
+      }
+
+      const mainRect = mainBall.getBoundingClientRect();
+      const boxRect  = boxEl.getBoundingClientRect();
+
+      const startX = mainRect.left + mainRect.width / 2;
+      const startY = mainRect.top  + mainRect.height / 2;
+      const endX   = boxRect.left  + boxRect.width / 2;
+      const endY   = boxRect.top   + boxRect.height / 2;
+
+      const size = 32;
+
+      shotBall.style.transition = 'none';
+      shotBall.style.width  = size + 'px';
+      shotBall.style.height = size + 'px';
+      shotBall.style.left   = (startX - size / 2) + 'px';
+      shotBall.style.top    = (startY - size / 2) + 'px';
+      shotBall.style.transform = 'translate(0, 0)';
+      shotBall.classList.remove('hidden');
+
+      // força reflow
+      shotBall.getBoundingClientRect();
+
+      const dx = endX - startX;
+      const dy = endY - startY;
+
+      shotBall.style.transition = 'transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1)';
+      shotBall.style.transform  = `translate(${dx}px, ${dy}px)`;
+
+      function finish() {
+        shotBall.classList.add('hidden');
+        shotBall.removeEventListener('transitionend', finish);
+        done();
+      }
+
+      shotBall.addEventListener('transitionend', finish);
+    }
+
+    // Confete por 4 segundos
+    function fireConfetti() {
+      if (typeof confetti !== 'function') return;
+
+      const duration = 4000;
+      const animationEnd = Date.now() + duration;
+      const defaults = {
+        startVelocity: 35,
+        spread: 360,
+        ticks: 60,
+        zIndex: 999999
+      };
+
+      function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          clearInterval(interval);
+          return;
+        }
+
+        const particleCount = 80;
+        confetti(Object.assign({}, defaults, {
+          particleCount,
+          origin: {
+            x: randomInRange(0.2, 0.8),
+            y: randomInRange(0.1, 0.5)
+          }
+        }));
+      }, 250);
+    }
+
+    function abrirQuase(valorGanho, chancesRestantes) {
+      if (quaseValorEl) {
+        animarValorPopup(quaseValorEl, valorGanho);
+      }
+      if (quaseMsgEl) {
+        if (chancesRestantes > 1) {
+          quaseMsgEl.textContent = 'Restam mais ' + chancesRestantes + ' chances para acertar o gol de R$ 500!';
+        } else if (chancesRestantes === 1) {
+          quaseMsgEl.textContent = 'Restam mais ' + chancesRestantes + ' chance para tentar o gol de R$ 500!';
+        } else {
+          quaseMsgEl.textContent = 'Você usou todas as suas chances desta rodada.';
+        }
+      }
+      modalQuase.classList.remove('hidden');
+      playCerto(); // som de acerto no "quase"
+    }
+
+    function fecharQuase() {
+      modalQuase.classList.add('hidden');
+    }
+
+    function abrirGol() {
+      modalGol.classList.remove('hidden');
+      startPrizeTimer();
+      fireConfetti();
+      playFinal();
+      if (golValorEl) {
+        animarValorPopup(golValorEl, 500);
+      }
+    }
+
+    function fecharGol() {
+      modalGol.classList.add('hidden');
+    }
+
+    function abrirSuperChute() {
+      modalSuper.classList.remove('hidden');
+    }
+
+    function fecharSuperChute() {
+      modalSuper.classList.add('hidden');
+    }
+
+    function abrirGanhou5x() {
+      if (ganhouOriginalEl) {
+        animarValorPopup(ganhouOriginalEl, saldoAntesMultiplicador);
+      }
+      modalGanhou5x.classList.remove('hidden');
+    }
+
+    function fecharGanhou5x() {
+      modalGanhou5x.classList.add('hidden');
+    }
+
+    function abrirModalMultiFinal(orig, final) {
+      if (multiOriginalEl) animarValorPopup(multiOriginalEl, orig);
+      if (multiFinalEl)    animarValorPopup(multiFinalEl, final);
+      modalMulti.classList.remove('hidden');
+    }
+
+    function ativarMultiplicadorVisual() {
+      boxes.forEach(box => box.classList.add('multiplicador-ativo'));
+      if (badge15x) {
+        badge15x.classList.remove('hidden');
+      }
+    }
+
+    // Lógica do botão CHUTAR
+    btnChutar.addEventListener('click', () => {
+      if (isProcessing) return;
+      playClick();
+
+      // MODO MULTIPLICADOR 5x (depois do "Jogar com 5x")
+      if (modoMultiplicadorAtivo) {
+        isProcessing = true;
+
+        const box1000 = boxes.find(b => b.textContent.trim() === '500') || boxes[0];
+
+        animateShotToBox(box1000, () => {
+          resetHighlights();
+          highlightElement(box1000);
+
+          fireConfetti();
+          playFinal();
+
+          // aplica o multiplicador sobre o saldo armazenado
+          saldo = saldoAntesMultiplicador;
+          animarSaldoPara(saldoFinalMultiplicado);
+
+          abrirModalMultiFinal(saldoAntesMultiplicador, saldoFinalMultiplicado);
+
+          modoMultiplicadorAtivo = false;
+          isProcessing = false;
+        });
+
+        return;
+      }
+
+      // MODO NORMAL (3 CHANCES)
+      if (chances <= 0) return;
+      isProcessing = true;
+
+      if (chances === 3) {
+        // 1ª chance: sempre 35
+        const ganho = 35;
+        const box35 = boxes.find(b => b.textContent.trim() === '35');
+        animateShotToBox(box35, () => {
+          resetHighlights();
+          if (box35) highlightElement(box35);
+          chances--;
+          atualizarChances();
+
+          animarSaldoPara(saldo + ganho);
+          abrirQuase(ganho, chances);
+          isProcessing = false;
+        });
+      } else if (chances === 2) {
+        // 2ª chance: sempre 19
+        const ganho = 19;
+        const box19 = boxes.find(b => b.textContent.trim() === '19');
+        animateShotToBox(box19 || boxes[0], () => {
+          resetHighlights();
+          highlightElement(box19 || boxes[0]);
+          chances--;
+          atualizarChances();
+
+          animarSaldoPara(saldo + ganho);
+          abrirQuase(ganho, chances);
+          isProcessing = false;
+        });
+      } else if (chances === 1) {
+        // 3ª chance: sempre 1000
+        const ganho = 500;
+        const box1000 = boxes.find(b => b.textContent.trim() === '500');
+        animateShotToBox(box1000, () => {
+          resetHighlights();
+          if (box1000) highlightElement(box1000);
+          chances--;
+          atualizarChances();
+
+          animarSaldoPara(saldo + ganho);
+          abrirGol();
+          isProcessing = false;
+        });
+      }
+    });
+
+    // Fechar popups QUASE
+    btnQuaseContinuar.addEventListener('click', () => {
+      playClick();
+      fecharQuase();
+    });
+
+    btnQuaseClose.addEventListener('click', () => {
+      playClick();
+      fecharQuase();
+    });
+
+    // Fechar popup GOL
+    btnGolClose.addEventListener('click', () => {
+      playClick();
+      fecharGol();
+    });
+
+    // Botão RESGATAR (popup GOL) -> abre Super Chute
+    btnResgatar.addEventListener('click', () => {
+      playClick();
+      fecharGol();
+      abrirSuperChute();
+    });
+
+    // Super chute: fechar
+    btnSuperClose.addEventListener('click', () => {
+      playClick();
+      fecharSuperChute();
+    });
+
+    // Super chute: continuar -> define saldo antes do multi e abre popup 5x
+    btnSuperContinuar.addEventListener('click', () => {
+      playClick();
+      fecharSuperChute();
+
+      saldoAntesMultiplicador = saldo;
+      saldoFinalMultiplicado  = saldoAntesMultiplicador * multiplicador;
+
+      abrirGanhou5x();
+    });
+
+    // Ganhou 5x: JOGAR (ativa modo multiplicador, usuário precisa clicar em CHUTAR)
+    btnGanhouJogar.addEventListener('click', () => {
+      playClick();
+      fecharGanhou5x();
+
+      ativarMultiplicadorVisual();
+      modoMultiplicadorAtivo = true;
+    });
+
+    // Resgatar do saldo (header) -> off
+    function irParaOff() {
+      window.location.href = './3' + window.location.search;
+    }
+
+    btnResgatarSaldo.addEventListener('click', () => {
+      playClick();
+      irParaOff();
+    });
+
+    // Resgatar valor na popup final -> off
+    btnMultiResgatar.addEventListener('click', () => {
+      playClick();
+      irParaOff();
+    });
+  </script>
+
+
+</body></html>
